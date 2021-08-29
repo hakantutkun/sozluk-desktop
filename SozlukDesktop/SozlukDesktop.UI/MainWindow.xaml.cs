@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SozlukDesktop.UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace SozlukDesktop.UI
         public MainWindow()
         {
             InitializeComponent();
+
+            // Set the datacontext of this window
+            DataContext = new WindowViewModel(this);
         }
     }
 }

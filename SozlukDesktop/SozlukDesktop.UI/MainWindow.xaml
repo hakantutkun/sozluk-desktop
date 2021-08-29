@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SozlukDesktop.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        MinWidth="{Binding WindowMinWidth}"
+        MinHeight="{Binding WindowMinHeight}"
+        Width="1300"
+        Height="800"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowStyle}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="10"
+            />
+    </WindowChrome.WindowChrome>
+    <Window.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="2" Background="#F7F7F7">
+
+
+                <TextBlock Text="Karaçay Malkar Türkçesi Sözlüğü" FontSize="45" Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+            </Border>
+        </Grid>
+    </Window.Content>
 </Window>

@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Window Background Color-->
+    <Color x:Key="WindowButtonBackgroundHover">#ededed</Color>
+    <SolidColorBrush x:Key="WindowButtonBackgroundHoverBrush" Color="{StaticResource WindowButtonBackgroundHover}" />
+
+    <!--White Color-->
+    <Color x:Key="WhiteColor">#ffffff</Color>
+    <SolidColorBrush x:Key="WhiteColorBrush" Color="{StaticResource WhiteColor}" />
+
+</ResourceDictionary>
