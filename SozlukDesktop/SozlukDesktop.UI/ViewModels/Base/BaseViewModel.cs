@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace SozlukDesktop.UI.ViewModels.Base
+namespace SozlukDesktop.UI
 {
     /// <summary>
     /// A Base View Model which implements PropertyChanged events

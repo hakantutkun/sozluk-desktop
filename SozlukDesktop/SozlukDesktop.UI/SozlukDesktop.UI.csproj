@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SciChart.Wpf.UI.Transitionz, Version=3.1.251.0, Culture=neutral, PublicKeyToken=8eea68d53aa73a83, processorArchitecture=MSIL">
+      <HintPath>..\packages\SciChart.Wpf.UI.Transitionz.3.1.251\lib\net452\SciChart.Wpf.UI.Transitionz.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,9 +58,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="Controls\Input\SearchInputControl.xaml.cs">
+      <DependentUpon>SearchInputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchAreaControl.xaml.cs">
+      <DependentUpon>SearchAreaControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WordCardControl.xaml.cs">
+      <DependentUpon>WordCardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WordTabControl.xaml.cs">
+      <DependentUpon>WordTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WordModel.cs" />
+    <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
+    <Compile Include="ViewModels\Input\Design\SearchInputDesignModel.cs" />
+    <Compile Include="ViewModels\Input\SearchInputViewModel.cs" />
+    <Compile Include="ViewModels\SearchAreaViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
+    <Compile Include="ViewModels\WordTabViewModel.cs" />
+    <Page Include="Controls\Input\SearchInputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SearchAreaControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WordCardControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WordTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,8 +155,29 @@
     <Resource Include="Fonts\fa-brands-400.ttf" />
     <Resource Include="Fonts\fa-regular-400.ttf" />
     <Resource Include="Fonts\fa-solid-900.ttf" />
-    <Resource Include="Fonts\SFUIDisplay-Bold.ttf" />
-    <Resource Include="Fonts\SFUIDisplay-Light.ttf" />
+    <Resource Include="Fonts\Besley-Black.ttf" />
+    <Resource Include="Fonts\Besley-Medium.ttf" />
+    <Resource Include="Fonts\Besley-Regular.ttf" />
+    <Resource Include="Fonts\Besley-SemiBold.ttf" />
+    <Resource Include="Fonts\Jost-Black.ttf" />
+    <Resource Include="Fonts\Jost-BlackItalic.ttf" />
+    <Resource Include="Fonts\Jost-Bold.ttf" />
+    <Resource Include="Fonts\Jost-BoldItalic.ttf" />
+    <Resource Include="Fonts\Jost-ExtraBold.ttf" />
+    <Resource Include="Fonts\Jost-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\Jost-ExtraLight.ttf" />
+    <Resource Include="Fonts\Jost-ExtraLightItalic.ttf" />
+    <Resource Include="Fonts\Jost-Italic.ttf" />
+    <Resource Include="Fonts\Jost-Light.ttf" />
+    <Resource Include="Fonts\Jost-LightItalic.ttf" />
+    <Resource Include="Fonts\Jost-Medium.ttf" />
+    <Resource Include="Fonts\Jost-MediumItalic.ttf" />
+    <Resource Include="Fonts\Jost-Regular.ttf" />
+    <Resource Include="Fonts\Jost-SemiBold.ttf" />
+    <Resource Include="Fonts\Jost-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\Jost-Thin.ttf" />
+    <Resource Include="Fonts\Jost-ThinItalic.ttf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

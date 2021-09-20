@@ -1,8 +1,7 @@
-﻿using SozlukDesktop.UI.ViewModels.Base;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
-namespace SozlukDesktop.UI.ViewModels
+namespace SozlukDesktop.UI
 {
     /// <summary>
     /// A View model for Window element
@@ -23,7 +22,7 @@ namespace SozlukDesktop.UI.ViewModels
         /// <summary>
         /// The corner radius for window when minimized
         /// </summary>
-        public int WindowCornerRadius { get; set; } = 5;
+        public int WindowCornerRadius { get; set; } = 0;
 
         /// <summary>
         /// Margin for showing shadow when window minimized
@@ -43,6 +42,11 @@ namespace SozlukDesktop.UI.ViewModels
         /// The minimum height of the window
         /// </summary>
         public int WindowMinHeight { get; set; } = 550;
+
+        /// <summary>
+        /// The height of the main border
+        /// </summary>
+        public int MainBorderHeight { get; set; }
 
         #endregion
 
@@ -78,6 +82,9 @@ namespace SozlukDesktop.UI.ViewModels
         public WindowViewModel(Window window)
         {
             mWindow = window;
+
+            // Set the mainborder height initially 
+            MainBorderHeight = (int)(mWindow.Height / 2);
 
             // Listen out for the window resizing
             mWindow.StateChanged += (sender, e) =>

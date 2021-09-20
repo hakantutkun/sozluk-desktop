@@ -9,4 +9,8 @@
     <Color x:Key="WhiteColor">#ffffff</Color>
     <SolidColorBrush x:Key="WhiteColorBrush" Color="{StaticResource WhiteColor}" />
 
+    <!--White Color-->
+    <Color x:Key="GeneralPlaceHolderColor">#A0A0A8</Color>
+    <SolidColorBrush x:Key="GeneralPlaceHolderBrush" Color="{StaticResource GeneralPlaceHolderColor}" />
+
 </ResourceDictionary>

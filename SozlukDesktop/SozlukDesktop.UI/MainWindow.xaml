@@ -20,19 +20,39 @@
     </WindowChrome.WindowChrome>
     <Window.Content>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="360"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <Border Grid.Column="2" Background="#F7F7F7">
+            <!--Word of the day and last search grid-->
+            <Grid Width="800"
+                  Visibility="Collapsed"
+                  Grid.Row="1">
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Karaçay Malkar Türkçesi Sözlüğü" FontSize="45" Grid.Column="1"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                <local:WordCardControl Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                <local:WordCardControl Grid.Column="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
 
-            </Border>
+            </Grid>
+
+            <!--Tab Control Grid-->
+            <local:WordTabControl Grid.Row="1"/>
+
+            <!--Search Area with search box-->
+            <local:SearchAreaControl Grid.Row="0"
+                                     Grid.RowSpan="2"
+                                     VerticalAlignment="Top" />
+
+            
         </Grid>
     </Window.Content>
 </Window>

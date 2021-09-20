@@ -2,13 +2,37 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     
-    <!--Font Size-->
+    <!--Font Definitions-->
+    <FontFamily x:Key="BesleyBlack">pack://application;,,,/Fonts/#Besley Black</FontFamily>
+    <FontFamily x:Key="BesleyRegular">pack://application;,,,/Fonts/#Besley</FontFamily>
+    <FontFamily x:Key="BesleyMedium">pack://application;,,,/Fonts/#Besley Medium</FontFamily>
+    <FontFamily x:Key="BesleySemiBold">pack://application;,,,/Fonts/#Besley SemiBold</FontFamily>
+
+    <FontFamily x:Key="JostBlack">pack://application;,,,/Fonts/#Jost Black</FontFamily>
+    <FontFamily x:Key="JostBold">pack://application;,,,/Fonts/#Jost</FontFamily>
+    <FontFamily x:Key="JostExtraBold">pack://application;,,,/Fonts/#Jost ExtraBold</FontFamily>
+    <FontFamily x:Key="JostExtraLight">pack://application;,,,/Fonts/#Jost ExtraLight</FontFamily>
+    <FontFamily x:Key="JostLight">pack://application;,,,/Fonts/#Jost Light</FontFamily>
+    <FontFamily x:Key="JostMedium">pack://application;,,,/Fonts/#Jost Medium</FontFamily>
+    <FontFamily x:Key="JostSemiBold">pack://application;,,,/Fonts/#Jost SemiBold</FontFamily>
+    <FontFamily x:Key="JostThin">pack://application;,,,/Fonts/#Jost Thin</FontFamily>
+
+
+
+    <!--Font Size Definitions-->
     <system:Double x:Key="FontSizeSmaller">10</system:Double>
     <system:Double x:Key="FontSizeSmall">12</system:Double>
     <system:Double x:Key="FontSizeRegular">14</system:Double>
     <system:Double x:Key="FontSizeLarge">20</system:Double>
     <system:Double x:Key="FontSizeXLarge">24</system:Double>
     <system:Double x:Key="FontSizeXXLarge">30</system:Double>
+
+
+    <!--Default Font-->
+    <Style TargetType="{x:Type Control}">
+        <Setter Property="FontFamily" Value="{StaticResource BesleyRegular}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
+    </Style>
 
     <!--FontAwesome Fonts-->
     <FontFamily x:Key="FontAwesomeBrands">pack://application;,,,/Fonts/#Font Awesome 5 Brands Regular</FontFamily>
@@ -20,5 +44,6 @@
     <system:String x:Key="FontAwesomeMaximizeIcon">&#xf2d0;</system:String>
     <system:String x:Key="FontAwesomeCloseIcon">&#xf00d;</system:String>
     <system:String x:Key="FontAwesomeMenuIcon">&#xf141;</system:String>
+    <system:String x:Key="FontAwesomeSearchIcon">&#xf002;</system:String>
     
 </ResourceDictionary>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace SozlukDesktop.UI.ViewModels.Base
+namespace SozlukDesktop.UI
 {
     /// <summary>
     /// Default summary for RelayCommand.cs
