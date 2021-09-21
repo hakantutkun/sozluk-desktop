@@ -5,8 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SozlukDesktop.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        MinWidth="{Binding WindowMinWidth}"
+        MinHeight="{Binding WindowMinHeight}"
+        Width="1300"
+        Height="800"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowStyle}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="10"
+            />
+    </WindowChrome.WindowChrome>
+    <Window.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Word of the day and last search grid-->
+            <Grid Width="800"
+                  Visibility="Collapsed"
+                  Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <local:WordCardControl Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                <local:WordCardControl Grid.Column="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <!--Tab Control Grid-->
+            <local:WordTabControl Grid.Row="1"/>
+
+            <!--Search Area with search box-->
+            <local:SearchAreaControl Grid.Row="0"
+                                     Grid.RowSpan="2"
+                                     VerticalAlignment="Top" />
+
+            
+        </Grid>
+    </Window.Content>
 </Window>
