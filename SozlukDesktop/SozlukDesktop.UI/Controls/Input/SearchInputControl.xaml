@@ -125,14 +125,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="70">
-                        <TextBlock Text="{Binding Word}" 
+                        <TextBlock Text="{Binding KaracaycaAnlam}" 
                                    FontSize="25" 
                                    FontFamily="{StaticResource BesleyRegular}"
                                    Foreground="White" 
                                    HorizontalAlignment="Center" 
                                    VerticalAlignment="Center"/>
 
-                        <TextBlock Text="{Binding TypeOfWord}" 
+                        <TextBlock Text="{Binding TurkceAnlam}" 
                                    VerticalAlignment="Center"
                                    Margin="15 0 0 0"
                                    Foreground="White"/>

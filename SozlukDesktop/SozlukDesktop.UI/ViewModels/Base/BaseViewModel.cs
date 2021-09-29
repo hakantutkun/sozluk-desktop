@@ -36,7 +36,7 @@ namespace SozlukDesktop.UI
         /// <param name="name"></param>
         public void OnPropertyChanged(string name)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(name));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         #endregion

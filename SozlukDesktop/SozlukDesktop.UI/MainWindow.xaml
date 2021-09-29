@@ -21,7 +21,7 @@
     <Window.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="300"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -49,7 +49,6 @@
 
             <!--Search Area with search box-->
             <local:SearchAreaControl Grid.Row="0"
-                                     Grid.RowSpan="2"
                                      VerticalAlignment="Top" />
 
             

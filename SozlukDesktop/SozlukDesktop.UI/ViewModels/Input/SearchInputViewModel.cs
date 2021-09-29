@@ -1,12 +1,10 @@
-﻿using SozlukDesktop.UI.Models;
+﻿using SozlukDesktop.DBAccess.Manager;
+using SozlukDesktop.Entities.Models;
 using SozlukDesktop.UI.ViewModels;
 using System;
 using System.Collections.ObjectModel;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Linq;
 using System.Windows.Input;
-using System.Windows.Threading;
 
 namespace SozlukDesktop.UI
 {
@@ -54,7 +52,15 @@ namespace SozlukDesktop.UI
         /// </summary>
         private bool _clearButtonVisibility;
 
-        public SearchAreaViewModel SearchAreaViewModel { get; set; } = SearchAreaViewModel.GetSearchAreaViewModel();
+        /// <summary>
+        /// An instance of <see cref="SearchAreaViewModel"/>
+        /// </summary>
+        public SearchAreaViewModel SearchAreaViewModel { get; set; }
+
+        /// <summary>
+        /// An instance of <see cref="SearchAreaViewModel"/>
+        /// </summary>
+        public WordTabViewModel WordTabViewModel { get; set; }
 
         /// <summary>
         /// A flag that indicates if searching is active or not
@@ -64,7 +70,7 @@ namespace SozlukDesktop.UI
         /// <summary>
         /// A list that holds result words
         /// </summary>
-        private ObservableCollection<WordModel> _wordList;
+        private ObservableCollection<Kelime> _wordList;
 
         #endregion
 
@@ -85,36 +91,35 @@ namespace SozlukDesktop.UI
         public string ContentText
         {
             get { return _contentText; }
-            set 
-            { 
+            set
+            {
                 // set the content text with given value
                 _contentText = value;
 
-                ContentTexxtChanged(value);
+                ContentTextChanged(value);
 
                 // fire off onpropertychanged event
                 OnPropertyChanged(nameof(ContentText));
             }
         }
-       
+
         /// <summary>
         /// A flag that controls clear button visibility
         /// </summary>
-        public bool ClearButtonVisibility 
+        public bool ClearButtonVisibility
         {
-            get { return _clearButtonVisibility;  } 
-            set 
-            { 
-                _clearButtonVisibility = value;  
+            get { return _clearButtonVisibility; }
+            set
+            {
+                _clearButtonVisibility = value;
                 OnPropertyChanged(nameof(ClearButtonVisibility));
-            } 
+            }
         }
 
         /// <summary>
-        /// A temporary word for placeholder complementin while typing
-        /// TODO: Bind to dynamically best close result 
+        /// Complementary word for placeholder complementing while typing
         /// </summary>
-        public string TemporaryWord { get; set; } = "inspire";
+        public string ComplementaryWord { get; set; }
 
 
         /// <summary>
@@ -129,7 +134,7 @@ namespace SozlukDesktop.UI
         /// <summary>
         /// A list that holds result words
         /// </summary>
-        public ObservableCollection<WordModel> WordList
+        public ObservableCollection<Kelime> WordList
         {
             get { return _wordList; }
             set { _wordList = value; OnPropertyChanged(nameof(WordList)); }
@@ -156,19 +161,11 @@ namespace SozlukDesktop.UI
             // get an instance of search area view model
             SearchAreaViewModel = SearchAreaViewModel.GetSearchAreaViewModel();
 
+            // get an instance of search area view model
+            WordTabViewModel = WordTabViewModel.GetWordTabViewModel();
+
             // Create commands
             ClearCommand = new RelayCommand(Clear);
-
-            // TODO: Fill dynamically when database implemented
-            // create an instance of the result list
-            _wordList = new ObservableCollection<WordModel>();
-
-            WordList.Add(new WordModel { Word = "biyçe", TypeOfWord = "İsim" });
-            WordList.Add(new WordModel { Word = "tavruh", TypeOfWord = "İsim" });
-            WordList.Add(new WordModel { Word = "çapğan", TypeOfWord = "Fiil" });
-            WordList.Add(new WordModel { Word = "cürek", TypeOfWord = "İsim" });
-            WordList.Add(new WordModel { Word = "castık", TypeOfWord = "İsim" });
-            WordList.Add(new WordModel { Word = "cücek", TypeOfWord = "İsim" });
         }
         #endregion
 
@@ -178,6 +175,9 @@ namespace SozlukDesktop.UI
         {
             // Clear content text of search input
             ContentText = string.Empty;
+
+            // Expand search area again
+            SearchAreaViewModel.IsShrank = false;
         }
 
 
@@ -189,7 +189,7 @@ namespace SozlukDesktop.UI
         /// Fires relevant processes for searching process
         /// </summary>
         /// <param name="value">current search bar text </param>
-        private void ContentTexxtChanged(string value)
+        private void ContentTextChanged(string value)
         {
             // Check if the content of textbox is empty or null
             if (string.IsNullOrEmpty(value))
@@ -209,16 +209,11 @@ namespace SozlukDesktop.UI
             }
             else
             {
+                // Set is searching flag to true to indicate that search process is active
+                IsSearching = true;
 
-                // Simulate searhing
-
-                Task task = new Task(() =>
-                {
-                    AddDummyDataToWordList();
-                });
-
-                task.Start();
-
+                // Fetch relevant words from database
+                WordList = new ObservableCollection<Kelime>(DBManager.LoadWordsLike(value));
 
                 // Expand search area when something is typed
                 SearchAreaViewModel.IsExpanded = true;
@@ -229,32 +224,48 @@ namespace SozlukDesktop.UI
                 // get the length of the current content of text box
                 var length = value.Length;
 
-                // TODO: Change guess word as dynamic...
-                // get the substring of best close result 
-                var tempText = TemporaryWord.Substring(0, length);
+                // Null reference control
+                if (WordList.Count != 0)
+                {
+                    // Set complementary word with the most close one
+                    ComplementaryWord = WordList.FirstOrDefault().KaracaycaAnlam;
 
-                // Check if this two value equals
-                if (value == tempText)
-                    // If values are equal, then we can show the placeholder as a guess
-                    PlaceHolderText = TemporaryWord;
+                    // get the substring of best close result 
+                    var tempText = ComplementaryWord.Substring(0, length);
+
+                    // Check if this two value equals
+                    if (value == tempText)
+                        // If values are equal, then we can show the placeholder as a guess
+                        PlaceHolderText = ComplementaryWord;
+                    else
+                        // otherwise do not show anything to user
+                        PlaceHolderText = String.Empty;
+                }
                 else
-                    // otherwise do not show anything to user
-                    PlaceHolderText = String.Empty;
+                {
+                    // If any words found, set placeholder text to empty
+                    PlaceHolderText = string.Empty;
+                }
+
             }
         }
 
         /// <summary>
-        /// Adds dummy data to simulate searching 
+        /// Prepares selected word item
         /// </summary>
-        private void AddDummyDataToWordList()
+        internal void PrepareSelectedWordItem(Kelime selectedWord)
         {
+            // Shrink the search area
+            SearchAreaViewModel.IsShrank = true;
 
-            // make user to wait some time before fetched the words
-            Thread.Sleep(0);
+            // Hide title of search area
+            SearchAreaViewModel.TitleVisibility = false;
 
-            // Set is searching flag to true to indicate that search process is active
-            IsSearching = true;
+            // End search process
+            IsSearching = false;
 
+            // Set the selected word for tab view changes
+            WordTabViewModel.SelectedWord = selectedWord;
         }
 
         #endregion

@@ -173,7 +173,7 @@
         <Border Height="39" VerticalAlignment="Top" Background="#5650f4"/>
         <Grid Width="600" Name="maingrid">
 
-            <TabControl x:Name="tabControl" SelectionChanged="tabControl_SelectionChanged">
+            <TabControl x:Name="tabControl">
                 <TabItem x:Name="tab1" Header="KELİME ANLAMI" FontFamily="{StaticResource JostMedium}">
                     <Border Background="Transparent">
                         <Border.Triggers>
@@ -199,10 +199,10 @@
 
                                 <StackPanel Margin="10" Orientation="Horizontal">
                                     <TextBlock Text="01." Foreground="Black"/>
-                                    <TextBlock Text=" Tombul Çocuk" Foreground="#767676"/>
+                                    <TextBlock Text="{Binding WordInformation, UpdateSourceTrigger=PropertyChanged}" Foreground="#767676"/>
                                 </StackPanel>
 
-                                <StackPanel Margin="10" Orientation="Horizontal">
+                                <!--<StackPanel Margin="10" Orientation="Horizontal">
                                     <TextBlock Text="02." Foreground="Black"/>
                                     <TextBlock Text=" Ağır Adam" Foreground="#767676"/>
                                 </StackPanel>
@@ -210,7 +210,7 @@
                                 <StackPanel Margin="10" Orientation="Horizontal">
                                     <TextBlock Text="03." Foreground="Black"/>
                                     <TextBlock Text=" Büyük ve yaşlı köpek" Foreground="#767676"/>
-                                </StackPanel>
+                                </StackPanel>-->
 
                             </StackPanel>
                             

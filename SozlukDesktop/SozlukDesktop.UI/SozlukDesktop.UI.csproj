@@ -189,5 +189,15 @@
   <ItemGroup>
     <Folder Include="Controls\Window\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SozlukDesktop.DBAccess\SozlukDesktop.DBAccess.csproj">
+      <Project>{1B276423-47C7-4D64-BB99-2177E74FD75C}</Project>
+      <Name>SozlukDesktop.DBAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SozlukDesktop.Entities\SozlukDesktop.Entities.csproj">
+      <Project>{5A25599D-9B35-4C84-82D2-03768989F657}</Project>
+      <Name>SozlukDesktop.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

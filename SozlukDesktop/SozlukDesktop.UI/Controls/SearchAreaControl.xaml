@@ -36,9 +36,29 @@
                             </BeginStoryboard>
                         </DataTrigger.ExitActions>
                     </DataTrigger>
-                    <!--<DataTrigger Binding="{Binding IsExpanded}" Value="True">
-                        <Setter Property="Margin" Value="0,48,0,0" />
-                    </DataTrigger>-->
+
+                    <DataTrigger Binding="{Binding IsShrank}" Value="True">
+                        <DataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Height" 
+                                                     From="300" 
+                                                     To="150" 
+                                                     Duration="0:0:.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </DataTrigger.EnterActions>
+                        <DataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Height" 
+                                                     From="150" 
+                                                     To="300" 
+                                                     Duration="0:0:.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </DataTrigger.ExitActions>
+                    </DataTrigger>
                 </Style.Triggers>
             </Style>
         </Border.Style>
@@ -56,6 +76,7 @@
                                HorizontalAlignment="Center"
                                Foreground="#d2d2d2"
                                VerticalAlignment="Center"
+                               Visibility="{Binding TitleVisibility, Converter={local:BooleanToVisibilityConverter}}"
                                Margin="0 20 0 40"/>
 
             <local:SearchInputControl/>

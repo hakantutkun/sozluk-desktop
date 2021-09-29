@@ -1,4 +1,7 @@
-﻿namespace SozlukDesktop.UI.ViewModels
+﻿using SozlukDesktop.Entities.Models;
+using System;
+
+namespace SozlukDesktop.UI.ViewModels
 {
     /// <summary>
     /// The view model for WordTab Control
@@ -36,10 +39,14 @@
         private int _selectedTabIndex;
 
         /// <summary>
-        /// Determines the tab bar animation direction
-        /// If true, animation direction will be right. Otherwise it will be to left.
+        /// Selected word for changing the content of tab view
         /// </summary>
-        private bool _isToRight;
+        private Kelime _selectedWord;
+
+        /// <summary>
+        /// The display information of the selected word
+        /// </summary>
+        private string _wordInformation;
 
         #endregion
 
@@ -55,20 +62,33 @@
         }
 
         /// <summary>
-        /// Determines the tab bar animation direction
-        /// If true, animation direction will be right. Otherwise it will be to left.
+        /// Selected word for changing the content of tab view
         /// </summary>
-        public bool IsToRight
+        public Kelime SelectedWord
         {
-            get { return _isToRight; }
+            get { return _selectedWord; }
             set 
             { 
-                _isToRight = value;
+                _selectedWord = value;
 
-                if (_isToRight == value)
-                    return;
+                OnPropertyChanged(nameof(SelectedWord));
 
-                OnPropertyChanged(nameof(IsToRight)); }
+                SelectedWordChanged(value);
+            }
+        }
+
+        /// <summary>
+        /// The display information of the selected word
+        /// </summary>
+        public string WordInformation
+        {
+            get { return _wordInformation; }
+            set 
+            { 
+                _wordInformation = value; 
+
+                OnPropertyChanged(nameof(WordInformation));
+            }
         }
 
         #endregion
@@ -80,12 +100,20 @@
         /// </summary>
         public WordTabViewModel()
         {
-
         }
 
         #endregion
 
         #region Helper Functions
+
+        /// <summary>
+        /// Arranges all changes at tab view according to selected word
+        /// </summary>
+        /// <param name="selectedWord">Selected Word</param>
+        private void SelectedWordChanged(Kelime selectedWord)
+        {
+            WordInformation = selectedWord.TurkceAnlam;
+        }
 
         #endregion
 

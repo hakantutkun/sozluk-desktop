@@ -1,4 +1,5 @@
-﻿using SozlukDesktop.UI.Models;
+﻿using SozlukDesktop.Entities.Models;
+using SozlukDesktop.UI.Models;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -25,16 +26,10 @@ namespace SozlukDesktop.UI
             // get selected item 
             var item = sender as ListViewItem;
 
-            // cast it to model
-            var content = (WordModel)(item.Content);
-
-            // Show test message box
-            MessageBox.Show(content.Word);
-
             // Default usage
             if (item != null && item.IsSelected)
             {
-                //Do your stuff
+                ((SearchInputViewModel)DataContext).PrepareSelectedWordItem((Kelime)(item.Content));
             }
         }
     }

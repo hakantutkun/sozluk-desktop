@@ -34,6 +34,16 @@
         /// </summary>
         private bool _isExpanded;
 
+        /// <summary>
+        /// A flag that controls the shrink animation of SearchArea
+        /// </summary>
+        private bool _isShrank;
+
+        /// <summary>
+        /// A flag that keeps title visibility
+        /// </summary>
+        private bool _titleVisibility;
+
         #endregion
 
         #region Public Properties
@@ -47,24 +57,22 @@
             set { _isExpanded = value; OnPropertyChanged(nameof(IsExpanded)); }
         }
 
-        #endregion
-
-        #region Constructor
-
         /// <summary>
-        /// Default Constructor
+        /// A flag that controls the shrink animation of SearchArea
         /// </summary>
-        public SearchAreaViewModel()
+        public bool IsShrank
         {
+            get { return _isShrank; }
+            set { _isShrank = value; OnPropertyChanged(nameof(IsShrank)); }
         }
 
-        #endregion
-
-        #region Helper Functions
-
-        public void ShrinkArea()
+        /// <summary>
+        /// A flag that keeps title visibility
+        /// </summary>
+        public bool TitleVisibility
         {
-
+            get { return _titleVisibility; }
+            set { _titleVisibility = value; OnPropertyChanged(nameof(TitleVisibility)); }
         }
 
         #endregion

@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SozlukDesktop.UI", "SozlukDesktop.UI\SozlukDesktop.UI.csproj", "{6C3032B5-2E85-4DB8-A087-DE6556E15443}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SozlukDesktop.DBAccess", "SozlukDesktop.DBAccess\SozlukDesktop.DBAccess.csproj", "{1B276423-47C7-4D64-BB99-2177E74FD75C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SozlukDesktop.Entities", "SozlukDesktop.Entities\SozlukDesktop.Entities.csproj", "{5A25599D-9B35-4C84-82D2-03768989F657}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6C3032B5-2E85-4DB8-A087-DE6556E15443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C3032B5-2E85-4DB8-A087-DE6556E15443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C3032B5-2E85-4DB8-A087-DE6556E15443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B276423-47C7-4D64-BB99-2177E74FD75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B276423-47C7-4D64-BB99-2177E74FD75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B276423-47C7-4D64-BB99-2177E74FD75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B276423-47C7-4D64-BB99-2177E74FD75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A25599D-9B35-4C84-82D2-03768989F657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A25599D-9B35-4C84-82D2-03768989F657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A25599D-9B35-4C84-82D2-03768989F657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A25599D-9B35-4C84-82D2-03768989F657}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
