@@ -1,3 +1,5 @@
 SozlukDesktop/.vs
-SozlukDesktop/SozlukDesktop.UI/bin
 SozlukDesktop/SozlukDesktop.UI/obj
+SozlukDesktop/SozlukDesktop.UI/bin
+SozlukDesktop/SozlukDesktop.DBAccess/obj
+SozlukDesktop/SozlukDesktop.DBAccess/bin
