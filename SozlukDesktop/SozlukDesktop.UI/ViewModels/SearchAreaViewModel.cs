@@ -42,7 +42,7 @@
         /// <summary>
         /// A flag that keeps title visibility
         /// </summary>
-        private bool _titleVisibility;
+        private bool _titleVisibility = true;
 
         #endregion
 
@@ -72,7 +72,11 @@
         public bool TitleVisibility
         {
             get { return _titleVisibility; }
-            set { _titleVisibility = value; OnPropertyChanged(nameof(TitleVisibility)); }
+            set 
+            { 
+                _titleVisibility = value;
+                OnPropertyChanged(nameof(TitleVisibility)); 
+            }
         }
 
         #endregion

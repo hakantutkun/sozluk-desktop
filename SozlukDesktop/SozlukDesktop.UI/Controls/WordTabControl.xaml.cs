@@ -9,11 +9,6 @@ namespace SozlukDesktop.UI
     /// </summary>
     public partial class WordTabControl : UserControl
     {
-        #region Private Members
-
-        private WordTabViewModel _viewModel = WordTabViewModel.GetWordTabViewModel();
-
-        #endregion
 
         #region Constructor
 
@@ -25,7 +20,7 @@ namespace SozlukDesktop.UI
             InitializeComponent();
 
             // Set the datacontext
-            _viewModel = new WordTabViewModel();
+            DataContext = WordTabViewModel.GetWordTabViewModel();
         }
 
         #endregion

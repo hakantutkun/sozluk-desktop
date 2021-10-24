@@ -77,7 +77,7 @@ namespace SozlukDesktop.UI
         #region Constructor
 
         /// <summary>
-        /// Default Constructor
+        /// A constructor that controls relevant window
         /// </summary>
         public WindowViewModel(Window window)
         {

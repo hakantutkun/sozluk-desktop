@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.37\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="SciChart.Wpf.UI.Transitionz, Version=3.1.251.0, Culture=neutral, PublicKeyToken=8eea68d53aa73a83, processorArchitecture=MSIL">
       <HintPath>..\packages\SciChart.Wpf.UI.Transitionz.3.1.251\lib\net452\SciChart.Wpf.UI.Transitionz.dll</HintPath>
     </Reference>
@@ -71,6 +74,7 @@
     <Compile Include="Controls\WordTabControl.xaml.cs">
       <DependentUpon>WordTabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Enums\SearchAreaHeight.cs" />
     <Compile Include="Models\WordModel.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
@@ -78,6 +82,7 @@
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Input\Design\SearchInputDesignModel.cs" />
     <Compile Include="ViewModels\Input\SearchInputViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\SearchAreaViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
     <Compile Include="ViewModels\WordTabViewModel.cs" />

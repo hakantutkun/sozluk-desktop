@@ -45,13 +45,13 @@
             </Grid>
 
             <!--Tab Control Grid-->
-            <local:WordTabControl Grid.Row="1"/>
+            <local:WordTabControl Grid.Row="1"
+                                  Visibility="{Binding TabViewVisibility, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}">
+            </local:WordTabControl>
 
             <!--Search Area with search box-->
             <local:SearchAreaControl Grid.Row="0"
                                      VerticalAlignment="Top" />
-
-            
         </Grid>
     </Window.Content>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SozlukDesktop.UI.ViewModels;
+using System.Windows;
 
 namespace SozlukDesktop.UI
 {
@@ -7,12 +8,20 @@ namespace SozlukDesktop.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Constructor
+
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
-
             // Set the datacontext of this window
-            DataContext = new WindowViewModel(this);
+            DataContext = MainWindowViewModel.GetMainWindowViewModel(this);
+
+            // Initialize components
+            InitializeComponent();
         }
+
+        #endregion
     }
 }

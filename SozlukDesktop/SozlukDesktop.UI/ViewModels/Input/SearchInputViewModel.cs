@@ -4,6 +4,7 @@ using SozlukDesktop.UI.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SozlukDesktop.UI
@@ -176,8 +177,12 @@ namespace SozlukDesktop.UI
             // Clear content text of search input
             ContentText = string.Empty;
 
-            // Expand search area again
+            // Normalize search area again
+            SearchAreaViewModel.IsExpanded = false;
             SearchAreaViewModel.IsShrank = false;
+
+            // Make title of search area visible
+            SearchAreaViewModel.TitleVisibility = true;
         }
 
 
@@ -203,8 +208,9 @@ namespace SozlukDesktop.UI
                 // If text box empty, make clear button invisible
                 ClearButtonVisibility = false;
 
-                // Shrink search area back
+                // reset search area back
                 SearchAreaViewModel.IsExpanded = false;
+                SearchAreaViewModel.IsShrank = false;
 
             }
             else
@@ -214,6 +220,9 @@ namespace SozlukDesktop.UI
 
                 // Fetch relevant words from database
                 WordList = new ObservableCollection<Kelime>(DBManager.LoadWordsLike(value));
+
+                // Set shrank flag to false
+                SearchAreaViewModel.IsShrank = false;
 
                 // Expand search area when something is typed
                 SearchAreaViewModel.IsExpanded = true;
@@ -255,6 +264,9 @@ namespace SozlukDesktop.UI
         /// </summary>
         internal void PrepareSelectedWordItem(Kelime selectedWord)
         {
+            // Set expanded flag to false
+            SearchAreaViewModel.IsExpanded = false;
+
             // Shrink the search area
             SearchAreaViewModel.IsShrank = true;
 

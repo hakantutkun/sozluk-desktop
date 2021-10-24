@@ -84,65 +84,6 @@
                             </Border>
                         </Grid>
                         <ControlTemplate.Triggers>
-                            <!--<DataTrigger Binding="{Binding IsToRight}" Value="True">
-                                <DataTrigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation 
-                                                Storyboard.TargetName="TabLine"
-                                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                From="0" To="130"
-                                                Duration="0:0:0.3" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </DataTrigger.EnterActions>
-                                <DataTrigger.ExitActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation 
-                                                Storyboard.TargetName="TabLine"
-                                                Storyboard.TargetProperty="Width"
-                                                From="0" To="-130" 
-                                                Duration="0:0:0.3" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </DataTrigger.ExitActions>
-                            </DataTrigger>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding IsToRight, TargetNullValue=false}" Value="True"/>
-                                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsSelected}" Value="True"/>
-                                </MultiDataTrigger.Conditions>
-                                <MultiDataTrigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation 
-                                                Storyboard.TargetName="TabLine"
-                                                Storyboard.TargetProperty="Width"
-                                                From="0" To="{StaticResource SlideOffSet}"
-                                                Duration="0:0:0.3" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </MultiDataTrigger.EnterActions>
-                            </MultiDataTrigger>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding IsToRight, TargetNullValue=false}" Value="False"/>
-                                    <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsSelected}" Value="True"/>
-                                </MultiDataTrigger.Conditions>
-                                <MultiDataTrigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation 
-                                                Storyboard.TargetName="TabLine"
-                                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                                From="{StaticResource SlideOffSet}" To="0"
-                                                Duration="0:0:0.3" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </MultiDataTrigger.EnterActions>
-                            </MultiDataTrigger>-->
-                            
                             <Trigger Property="IsSelected" Value="True">
                                 <Trigger.EnterActions>
                                     <BeginStoryboard>

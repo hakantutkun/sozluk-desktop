@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SozlukDesktop.UI"
              mc:Ignorable="d">
-
+    
     <Border x:Name="win1" 
             VerticalAlignment="Center"
             Height="300"
@@ -14,6 +14,7 @@
         <Border.Style>
             <Style TargetType="Border">
                 <Style.Triggers>
+
                     <DataTrigger Binding="{Binding IsExpanded}" Value="True">
                         <DataTrigger.EnterActions>
                             <BeginStoryboard>
@@ -30,29 +31,6 @@
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetProperty="Height" 
                                                      From="800" 
-                                                     To="300" 
-                                                     Duration="0:0:.3"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </DataTrigger.ExitActions>
-                    </DataTrigger>
-
-                    <DataTrigger Binding="{Binding IsShrank}" Value="True">
-                        <DataTrigger.EnterActions>
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="Height" 
-                                                     From="300" 
-                                                     To="150" 
-                                                     Duration="0:0:.3"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </DataTrigger.EnterActions>
-                        <DataTrigger.ExitActions>
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="Height" 
-                                                     From="150" 
                                                      To="300" 
                                                      Duration="0:0:.3"/>
                                 </Storyboard>
@@ -76,10 +54,20 @@
                                HorizontalAlignment="Center"
                                Foreground="#d2d2d2"
                                VerticalAlignment="Center"
-                               Visibility="{Binding TitleVisibility, Converter={local:BooleanToVisibilityConverter}}"
-                               Margin="0 20 0 40"/>
+                               Margin="0 20 0 40">
 
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=TitleVisibility}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <local:SearchInputControl/>
         </StackPanel>
     </Border>
+
 </UserControl>
