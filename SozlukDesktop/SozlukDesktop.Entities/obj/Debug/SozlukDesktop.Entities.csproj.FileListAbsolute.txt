@@ -3,4 +3,4 @@ D:\Programming\Git\0_PROJECTS\sozluk-desktop\SozlukDesktop\SozlukDesktop.Entitie
 D:\Programming\Git\0_PROJECTS\sozluk-desktop\SozlukDesktop\SozlukDesktop.Entities\obj\Debug\SozlukDesktop.Entities.csproj.CoreCompileInputs.cache
 D:\Programming\Git\0_PROJECTS\sozluk-desktop\SozlukDesktop\SozlukDesktop.Entities\obj\Debug\SozlukDesktop.Entities.dll
 D:\Programming\Git\0_PROJECTS\sozluk-desktop\SozlukDesktop\SozlukDesktop.Entities\obj\Debug\SozlukDesktop.Entities.pdb
-D:\Programming\Git\0_PROJECTS\sozluk-desktop\SozlukDesktop\SozlukDesktop.Entities\obj\Debug\SozlukDesktop.Entities.csprojAssemblyReference.cache
+D:\Programming\Git\0_PROJECTS\sozluk-desktop\SozlukDesktop\SozlukDesktop.Entities\obj\Debug\SozlukDesktop.Entities.csproj.AssemblyReference.cache
